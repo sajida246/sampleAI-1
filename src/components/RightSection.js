@@ -3,7 +3,7 @@ import Vapi from "@vapi-ai/web";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const vapi = new Vapi("c19bfda6-2d4b-4339-9460-db1407f17e8b");
+const vapi = new Vapi("5b1f521d-3fe6-40f9-8f6f-19e6c2d21bad");
 
 export default function VapiAssistant() {
   const [isTalking, setIsTalking] = useState(false);
@@ -14,7 +14,7 @@ export default function VapiAssistant() {
         
         if(!isTalking){
           console.log("starting")
-          await vapi.start("0776373c-104e-4d7d-abc5-c7c37a713a8e");
+          await vapi.start("62b8ae12-d6df-40de-af36-d01e54d94e1c");
           setIsTalking(true);
         }
         else {
