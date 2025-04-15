@@ -1,5 +1,24 @@
+:root {
+  --font-family-primary: "Roboto", sans-serif;
+  --font-family-secondary: "Arial", sans-serif;
+  --font-size-small: 12px;
+  --font-size-medium: 16px;
+  --font-size-large: 24px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-color-header: #b3b5b7;
+  --bg-color: #f4f5f6;
+  --page-bg-color: #e4f9fb;
+  --tint-color: #005187cc;
+  --primary-color: rgb(0 7 87);
+  --black-base-color: rgb(0 7 90 / 36%);
+}
+
 .App {
-  text-align: center;
+  text-align: left;
+  background-color: #e4f9fb;
+  min-height: 100vh;
+  color: var(--primary-color);
 }
 
 .App-logo {
@@ -14,20 +33,42 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e4f9fb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
+.toolbarContainer {
+  box-shadow: none !important;
+}
+.parentImg {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+}
 
+.small-avatar-group .MuiAvatarGroup-avatar {
+  width: 25px; /* Adjust size as needed */
+  height: 25px; /* Adjust size as needed */
+  font-size: 0.75rem; /* Adjust font size as needed */
+}
+.titleRight {
+  font-size: 3rem;
+  font-family: var(--title-font);
+  line-height: var(--reduced-title-line-height);
+  word-break: break-word;
+}
+.rightClass {
+  padding-left: 30px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +76,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+.vapi-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.vapi-button:hover {
+  background-color: #1e40af;
+  transform: scale(1.05);
+}
+
+.vapi-button.talking {
+  background-color: #dc2626;
 }
