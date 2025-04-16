@@ -44,7 +44,7 @@ export default function VoiceAgentIntro() {
               variant="subtitle1"
               sx={{ maxWidth: 600, mx: "auto", color: "#4e4e4e" }}
             >
-              Tap the mic to start a conversation with your AI agent. Powered by Vapi and built for natural voice interaction.
+              Tap the mic to start a conversation with your AI agent. Built for natural voice interaction.
             </Typography>
           </motion.div>
 
