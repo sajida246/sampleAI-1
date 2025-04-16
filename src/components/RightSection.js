@@ -1,41 +1,65 @@
-// VapiAssistant.js
-import Vapi from "@vapi-ai/web";
-import { useState } from "react";
+import React from "react";
+import { Box, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
+import VapiAssistant from "./Vapi";
 
-const vapi = new Vapi("5b1f521d-3fe6-40f9-8f6f-19e6c2d21bad");
-
-export default function VapiAssistant() {
-  const [isTalking, setIsTalking] = useState(false);
-  
-  const handleMicClick = async () => {
-   
-      try {
-        
-        if(!isTalking){
-          console.log("starting")
-          await vapi.start("62b8ae12-d6df-40de-af36-d01e54d94e1c");
-          setIsTalking(true);
-        }
-        else {
-          console.log("stopping")
-          await vapi.stop();
-          setIsTalking(false);
-        }
-      } catch (error) {
-        console.error("Error starting Vapi call:", error);
-      }
-    }
-
+export default function VoiceAgentIntro() {
   return (
-    <motion.button
-    className={`vapi-button ${isTalking ? "talking" : ""}`}
-    onClick={handleMicClick}
-    initial={{ scale: 1 }}
-    animate={{ scale: [1, 1.05, 1] }}
-    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-  >
-    {isTalking ? "🛑 Click to Stop" : "🎤 Talk to AI"}
-  </motion.button>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        background: "linear-gradient(to bottom right, #e3f2fd, #fce4ec)",
+        px: 2,
+      }}
+    >
+      <Container maxWidth="md">
+        <Box
+          sx={{
+            textAlign: "center",
+            py: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: "bold",
+                mb: 2,
+                color: "#1a237e",
+              }}
+            >
+              Your AI-Powered Voice Assistant
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ maxWidth: 600, mx: "auto", color: "#4e4e4e" }}
+            >
+              Tap the mic to start a conversation with your AI agent. Powered by Vapi and built for natural voice interaction.
+            </Typography>
+          </motion.div>
+
+          <motion.img
+          src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
+            alt="Voice AI Illustration"
+            style={{ maxWidth: "100%", width: 300 }}
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+
+          <VapiAssistant />
+        </Box>
+      </Container>
+    </Box>
   );
 }
