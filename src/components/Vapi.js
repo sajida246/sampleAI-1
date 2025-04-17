@@ -3,11 +3,11 @@ import Vapi from "@vapi-ai/web";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const vapi = new Vapi("5b1f521d-3fe6-40f9-8f6f-19e6c2d21bad");
+const vapi = new Vapi("de87d117-0bd6-4623-ba3c-bc1b5a6cd2ee");
 
 export default function VapiAssistant() {
   const [isTalking, setIsTalking] = useState(false);
-  
+  console.log("test");
   const handleMicClick = async () => {
    
       try {
