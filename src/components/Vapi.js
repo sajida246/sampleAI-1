@@ -3,7 +3,7 @@ import Vapi from "@vapi-ai/web";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const vapi = new Vapi("de87d117-0bd6-4623-ba3c-bc1b5a6cd2ee");
+const vapi = new Vapi("9b483fad-6b24-45cb-8453-5b3c1cdae724");
 
 export default function VapiAssistant() {
   const [isTalking, setIsTalking] = useState(false);
