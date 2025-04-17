@@ -39,5 +39,62 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <style>
+        #vapi-support-btn {
+          z-index: 9999 !important; /* or any high value you need */
+        }
+      </style>
+      <script>
+        const buttonConfig = {
+        position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+        offset: "40px", // decide how far the button should be from the edge
+        width: "50px", // min-width of the button
+        height: "50px", // height of the button
+        idle: { // button state when the call is not active.
+          color: `rgb(93, 254, 202)`, 
+          type: "pill", // or "round"
+          title: "Want to book an appointment?", // only required in case of Pill
+          subtitle: "Talk with our AI assistant", // only required in case of pill
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+        },
+        loading: { // button state when the call is connecting
+          color: `rgb(93, 124, 202)`,
+          type: "pill", // or "round"
+          title: "Connecting...", // only required in case of Pill
+          subtitle: "Please wait", // only required in case of pill
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+        },
+        active: { // button state when the call is in progress or active.
+          color: `rgb(255, 0, 0)`,
+          type: "pill", // or "round"
+          title: "Call is in progress...", // only required in case of Pill
+          subtitle: "End the call.", // only required in case of pill
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+        },
+      };
+
+      var vapiInstance = null;
+      const assistant = "0776373c-104e-4d7d-abc5-c7c37a713a8e"; // Substitute with your assistant ID
+      const apiKey = "9b483fad-6b24-45cb-8453-5b3c1cdae724"; // Substitute with your Public key from Vapi Dashboard.
+      
+      (function (d, t) {
+        var g = document.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src =
+          "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+
+        g.onload = function () {
+          vapiInstance = window.vapiSDK.run({
+            apiKey: apiKey, // mandatory
+            assistant: assistant, // mandatory
+            config: buttonConfig, // optional
+          });
+        };
+      })(document, "script");
+
+    </script>
   </body>
 </html>
