@@ -7,7 +7,7 @@ const vapi = new Vapi("9b483fad-6b24-45cb-8453-5b3c1cdae724");
 
 export default function VapiAssistant() {
   const [isTalking, setIsTalking] = useState(false);
-  console.log("test");
+  console.log("test hureka");
   const handleMicClick = async () => {
    
       try {
