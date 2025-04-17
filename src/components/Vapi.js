@@ -14,7 +14,7 @@ export default function VapiAssistant() {
         
         if(!isTalking){
           console.log("starting")
-          await vapi.start("62b8ae12-d6df-40de-af36-d01e54d94e1c");
+          await vapi.start("0776373c-104e-4d7d-abc5-c7c37a713a8e");
           setIsTalking(true);
         }
         else {
